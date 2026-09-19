@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Watermark Remover Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the Watermark Remover Android app.">
+  <link rel="canonical" href="https://watermarkremover.github.io/privacy/">
+</head>
+<body>
+  <main id="policy" class="narrow prose">
+    <h1>Privacy Policy</h1>
+    <p class="fine">Last updated: September 18, 2026</p>
+
+    <h2>On-device photo processing</h2>
+    <p>Watermark Remover detects, learns, and removes watermarks from your photos entirely on
+    your Android device. Source photos, learned watermark templates, and result photos are
+    never uploaded to any server for processing. You select a photo through Android's system
+    picker or share action; the app receives access to that selected file rather than broad
+    read access to your media library.</p>
+
+    <h2>Optional reports</h2>
+    <p>The app uses Firebase Anonymous Authentication and Firebase Firestore (collection
+    <code>reports</code>) for feedback, crash reports, out-of-memory reports, and Hardware
+    Test reports. Each of these can be disabled in Settings, and sending is always your
+    choice except where noted.</p>
+    <ul>
+      <li><strong>Feedback:</strong> your typed message, app version, device model, Android
+      version, a build fingerprint, the processing engine in use, a redacted log snippet, and
+      the app's current display language. If you tick "Image details" before sending, it may
+      also include the current screen, current settings, and facts about the photos involved
+      in the current session (count, dimensions, MIME types, byte sizes) and about the
+      watermark template (detection score, quality, cleaned fraction, whether it was judged
+      periodic, source-image count, and how many images were dropped for budget). No photo
+      pixel data is ever included.</li>
+      <li><strong>Optional screenshot:</strong> feedback may include a screenshot you choose
+      to attach, stored in Firebase Storage under <code>reports/screenshots/&lt;reportId&gt;.png</code>.
+      The local screenshot cache expires after 30 days.</li>
+      <li><strong>Crash and out-of-memory reports:</strong> a stack trace or thread name, and
+      for an out-of-memory kill, facts the operating system records about the kill (importance,
+      memory usage, description, timestamp). No image data. Automatic sharing can be disabled
+      in Settings.</li>
+      <li><strong>Hardware Test reports:</strong> device facts (model, manufacturer, chipset,
+      Android version, RAM, app version) and timing/prediction measurements from the optional
+      on-device hardware check. No image data of any kind. Off by default; enabled only via its
+      own Settings toggle.</li>
+    </ul>
+    <p>Every report also includes the app's currently-displayed language as a BCP-47 tag, and,
+    when it differs, your device's requested and default languages.</p>
+
+    <h2>Identifiers</h2>
+    <p>No user account is required. Firebase creates an anonymous app-account identifier
+    (<code>uid</code>). Reports also include Android ID so related submissions can be grouped.
+    Neither is used as an advertising identifier or intentionally tied to your name or email.</p>
+
+    <h2>Advertising and analytics</h2>
+    <p>The app does not include advertising SDKs, usage-analytics SDKs, or crash-analytics SDKs
+    (no Firebase Analytics, no Crashlytics — verified against the app's build configuration).
+    Google Play may separately process store-level data under Google's own privacy policies.</p>
+
+    <h2>Storage and retention</h2>
+    <p>Submitted reports are stored in Firebase Firestore; optional screenshots are stored in
+    Firebase Storage. A fixed server-side retention period is not currently published.</p>
+
+    <h2>Your controls</h2>
+    <ul>
+      <li>Disable crash and out-of-memory reporting in Settings.</li>
+      <li>Disable Hardware Test reporting in Settings.</li>
+      <li>Review feedback fields, including the "Image details" checkbox, and remove an
+      optional screenshot before sending.</li>
+    </ul>
+
+    <h2>Contact and deletion requests</h2>
+    <p>Email <a href="mailto:di2ger@gmail.com">di2ger@gmail.com</a> for privacy questions and
+    requests concerning submitted data.</p>
+  </main>
+  <footer class="site-footer">
+    <div class="narrow">
+      <p class="fine">Watermark Remover · Privacy policy updated September 18, 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
