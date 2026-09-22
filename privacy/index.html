@@ -10,7 +10,7 @@
 <body>
   <main id="policy" class="narrow prose">
     <h1>Privacy Policy</h1>
-    <p class="fine">Last updated: September 19, 2026</p>
+    <p class="fine">Last updated: September 22, 2026</p>
 
     <h2>On-device photo processing</h2>
     <p>Watermark Remover detects, learns, and removes watermarks from your photos entirely on
@@ -41,9 +41,19 @@
       memory usage, description, timestamp). No image data. Automatic sharing can be disabled
       in Settings.</li>
       <li><strong>Hardware Test reports:</strong> device facts (model, manufacturer, chipset,
-      Android version, RAM, app version) and timing/prediction measurements from the optional
-      on-device hardware check. No image data of any kind. Off by default; enabled only via its
-      own Settings toggle.</li>
+      Android version, RAM, app version, and whether this build includes the on-device AI
+      model) and timing/prediction measurements from the on-device hardware check. No image
+      data of any kind. On by default; can be turned off in Settings.</li>
+      <li><strong>Daily self-test reports:</strong> when the app is opened, and at most once a
+      day, it can run a fixed test suite on itself and send the result: device model,
+      manufacturer, Android version, app version and build (including whether it has the
+      on-device AI model), per-step timings, memory figures,
+      pass/fail for each step, and quality scores measured on <em>test images built into the
+      app</em>. It also includes a random identifier created once for this installation, so
+      results from the same device on different days can be compared. None of your photos, and
+      nothing derived from them, is measured or sent. Controlled by its own Settings toggle;
+      it is on by default only in builds distributed for a closed testing programme, and off
+      by default otherwise.</li>
     </ul>
     <p>Every report also includes the app's currently-displayed language as a BCP-47 tag, and,
     when it differs, your device's requested and default languages.</p>
@@ -51,7 +61,10 @@
     <h2>Identifiers</h2>
     <p>No user account is required. Firebase creates an anonymous app-account identifier
     (<code>uid</code>). Reports also include Android ID so related submissions can be grouped.
-    Neither is used as an advertising identifier or intentionally tied to your name or email.</p>
+    Daily self-test reports additionally include a random identifier generated once when the
+    app is installed, which is cleared when the app's data is cleared or the app is
+    uninstalled. None of these is used as an advertising identifier or intentionally tied to
+    your name or email.</p>
 
     <h2>Advertising and analytics</h2>
     <p>The app does not include advertising SDKs, usage-analytics SDKs, or crash-analytics SDKs
@@ -66,6 +79,7 @@
     <ul>
       <li>Disable crash and out-of-memory reporting in Settings.</li>
       <li>Disable Hardware Test reporting in Settings.</li>
+      <li>Disable daily self-test reporting in Settings.</li>
       <li>Review feedback fields, including the "Image details" checkbox, and remove an
       optional screenshot before sending.</li>
     </ul>
@@ -89,7 +103,7 @@
   </main>
   <footer class="site-footer">
     <div class="narrow">
-      <p class="fine">Watermark Remover · Privacy policy updated September 19, 2026.</p>
+      <p class="fine">Watermark Remover · Privacy policy updated September 22, 2026.</p>
     </div>
   </footer>
 </body>
