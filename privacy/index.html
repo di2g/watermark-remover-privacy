@@ -36,10 +36,12 @@
       <li><strong>Optional screenshot:</strong> feedback may include a screenshot you choose
       to attach, stored in Firebase Storage under <code>reports/screenshots/&lt;reportId&gt;.png</code>.
       The local screenshot cache expires after 30 days.</li>
-      <li><strong>Crash and out-of-memory reports:</strong> a stack trace or thread name, and
-      for an out-of-memory kill, facts the operating system records about the kill (importance,
-      memory usage, description, timestamp). No image data. Automatic sharing can be disabled
-      in Settings.</li>
+      <li><strong>Crash, out-of-memory and interrupted-job reports:</strong> a stack trace or
+      thread name, and for an out-of-memory kill or an interrupted job, facts the operating
+      system records about the kill (importance, memory usage, description, timestamp). They
+      also include the phone's memory state when the report is prepared at the next launch
+      (total and available memory, whether the system is low on memory, and the app's own
+      memory use). No image data. Automatic sharing can be disabled in Settings.</li>
       <li><strong>Hardware Test reports:</strong> device facts (model, manufacturer, chipset,
       Android version, RAM, app version, and whether this build includes the on-device AI
       model) and timing/prediction measurements from the on-device hardware check. No image
@@ -47,23 +49,30 @@
       <li><strong>Daily self-test reports:</strong> when the app is opened, and at most once a
       day, it can run a fixed test suite on itself and send the result: device model,
       manufacturer, Android version, app version and build (including whether it has the
-      on-device AI model), per-step timings, memory figures,
-      pass/fail for each step, and quality scores measured on <em>test images built into the
-      app</em>. It also includes a random identifier created once for this installation, so
-      results from the same device on different days can be compared. None of your photos, and
+      on-device AI model), per-step timings, memory figures (total and available memory,
+      whether the system is low on memory, and the app's own memory use), the device's thermal
+      state, the hardware-check device facts (such as chipset and RAM), how the app's previous
+      sessions ended (the exit reason, memory use and timestamp, and the system's short
+      description of the exit), pass/fail for each step, and quality scores measured on
+      <em>test images built into the app</em>. It also records that it started, with a small
+      report sent before the tests run, so a run that is interrupted is still visible. It
+      also includes a random identifier created once for this installation, so results from
+      the same device on different days can be compared. None of your photos, and
       nothing derived from them, is measured or sent. Controlled by its own Settings toggle;
       it is on by default only in builds distributed for a closed testing programme, and off
       by default otherwise.</li>
     </ul>
     <p>Every report also includes the app's currently-displayed language as a BCP-47 tag, and,
-    when it differs, your device's requested and default languages.</p>
+    when it differs, your device's requested and default languages. Every report also
+    includes a report-format version number, the time it was created on your device, and,
+    for reports sent from the app's offline queue, how many times sending was attempted and
+    how long the report waited before it was sent.</p>
 
     <h2>Identifiers</h2>
     <p>No user account is required. Firebase creates an anonymous app-account identifier
     (<code>uid</code>). Reports also include Android ID so related submissions can be grouped.
-    Daily self-test reports additionally include a random identifier generated once when the
-    app is installed, which is cleared when the app's data is cleared or the app is
-    uninstalled. None of these is used as an advertising identifier or intentionally tied to
+    Reports include a random identifier generated once when the app is installed, which is
+    cleared when the app's data is cleared or the app is uninstalled. None of these is used as an advertising identifier or intentionally tied to
     your name or email.</p>
 
     <h2>Advertising and analytics</h2>
